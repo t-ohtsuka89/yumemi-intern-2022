@@ -1,5 +1,5 @@
 ### DB起動
-docker-compose -up d database
+docker-compose up -d database
 
 ### マイグレーション
 docker-compose run --rm flyway-migrate
