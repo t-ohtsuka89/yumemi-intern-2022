@@ -40,9 +40,11 @@ CREATE TABLE `favorites`
   COLLATE = utf8mb4_unicode_ci COMMENT = 'いいねテーブル';
 
 -- データ挿入
+# ユーザーデータ
 INSERT INTO users (username, email, password)
 VALUES ('山田太郎', 'test@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta'),
        ('田中花子', 'test2@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta');
+# 投稿データ
 INSERT INTO posts (user_id, text)
 VALUES (1, '今日の晩御飯は美味しかった。by 山田太郎'),
        (2, '今日の晩御飯はまずかった。 by 田中花子');
