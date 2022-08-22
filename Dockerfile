@@ -1,4 +1,4 @@
-FROM openjdk:17.0.8-jdk-slim
+FROM openjdk:17.0.2-jdk-slim
 RUN ln -snf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN cp /etc/localtime /etc/timezone
 ADD ./ /tmp/
