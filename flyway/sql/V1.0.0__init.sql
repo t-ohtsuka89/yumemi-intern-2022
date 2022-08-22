@@ -48,4 +48,4 @@ VALUES (1, '今日の晩御飯は美味しかった。by 山田太郎'),
        (2, '今日の晩御飯はまずかった。 by 田中花子');
 # 太郎から花子の投稿へのいいね
 INSERT INTO favorites (user_id, post_id)
-VALUES (1, 2)
+VALUES (1, 2);
