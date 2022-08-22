@@ -41,13 +41,11 @@ CREATE TABLE `favorites`
 
 -- データ挿入
 INSERT INTO users (username, email, password)
-VALUES ('山田太郎', 'test@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta');
-INSERT INTO users (username, email, password)
-VALUES ('田中花子', 'test2@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta');
+VALUES ('山田太郎', 'test@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta'),
+       ('田中花子', 'test2@example.com', '$2a$08$W0kLGEd0VolF.ZUXlub9ge6iI0QQVbmgtiuCw0ijFJjfo0ZkJmLta');
 INSERT INTO posts (user_id, text)
-VALUES (1, '今日の晩御飯は美味しかった。by 山田太郎');
-INSERT INTO posts (user_id, text)
-VALUES (2, '今日の晩御飯はまずかった。 by 田中花子');
+VALUES (1, '今日の晩御飯は美味しかった。by 山田太郎'),
+       (2, '今日の晩御飯はまずかった。 by 田中花子');
 # 太郎から花子の投稿へのいいね
 INSERT INTO favorites (user_id, post_id)
 VALUES (1, 2)
