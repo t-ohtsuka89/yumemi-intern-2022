@@ -30,8 +30,8 @@ class PostController(private val postRepository: PostRepository) {
     @GetMapping
     @ResponseBody
     fun getPosts(
-        @RequestParam(required = true, defaultValue = "20") limit: Int,
-        @RequestParam(required = true, defaultValue = "0") offset: Int
+        @RequestParam(defaultValue = "20") limit: Int,
+        @RequestParam(defaultValue = "0") offset: Int
     ): HashMap<String, Any> {
         val resultList = entityManager
             .createNativeQuery("SELECT user_id, text, created_at FROM posts")
