@@ -3,7 +3,6 @@ package com.example.demo.app.controller
 
 import com.example.demo.domain.entity.User
 import com.example.demo.domain.repository.UserRepository
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,10 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
 @RequestMapping(path = ["/user"])
-class UserController {
-    @Autowired
-    lateinit var userRepository: UserRepository
-
+class UserController(private val userRepository: UserRepository) {
     @PostMapping
     @ResponseBody
     fun addUser(

@@ -11,10 +11,7 @@ import javax.persistence.PersistenceContext
 
 @Controller
 @RequestMapping(path = ["/post"])
-class PostController {
-    @Autowired
-    lateinit var postRepository: PostRepository
-
+class PostController(private val postRepository: PostRepository) {
     @PersistenceContext
     private lateinit var entityManager: EntityManager
 
