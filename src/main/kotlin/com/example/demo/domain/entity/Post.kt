@@ -4,14 +4,14 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "posts")
-class Post : TimeStamp() {
+class Post(
+    @Column(nullable = false)
+    var userId: Int,
+
+    @Column(nullable = false)
+    var text: String,
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int? = null
-
-    @Column(nullable = false)
-    var userId: Int? = null
-
-    @Column(nullable = false)
-    var text: String? = null
-}
+    val id: Int? = null,
+) : TimeStamp()

@@ -20,9 +20,10 @@ class PostController(private val postRepository: PostRepository) {
         @RequestParam userId: Int,
         @RequestParam text: String
     ): String {
-        val post = Post()
-        post.userId = userId
-        post.text = text
+        val post = Post(
+            userId = userId,
+            text = text,
+        )
         postRepository.save(post)
         return "Saved"
     }
