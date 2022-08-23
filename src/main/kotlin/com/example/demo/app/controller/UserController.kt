@@ -22,11 +22,11 @@ class UserController(private val userRepository: UserRepository) {
     ) {
         val passwordEncoder = BCryptPasswordEncoder()
         val digest = passwordEncoder.encode(password)
-        val n = User(
+        val user = User(
             username = username,
             email = email,
             password = digest,
         )
-        userRepository.save(n)
+        userRepository.save(user)
     }
 }
