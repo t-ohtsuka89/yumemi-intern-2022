@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
 @RequestMapping(path = ["/user"])
-
 class UserController {
     @Autowired
     lateinit var userRepository: UserRepository

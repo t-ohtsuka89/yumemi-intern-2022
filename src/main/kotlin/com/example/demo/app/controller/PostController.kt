@@ -11,7 +11,6 @@ import javax.persistence.PersistenceContext
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path = ["/post"]) // This means URL's start with /demo (after Application path)
-
 class PostController {
     @Autowired
     lateinit var postRepository: PostRepository
