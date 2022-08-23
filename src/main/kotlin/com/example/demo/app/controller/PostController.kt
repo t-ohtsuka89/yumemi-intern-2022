@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
 
-@Controller // This means that this class is a Controller
-@RequestMapping(path = ["/post"]) // This means URL's start with /demo (after Application path)
+@Controller
+@RequestMapping(path = ["/post"])
 class PostController {
     @Autowired
     lateinit var postRepository: PostRepository
@@ -30,7 +30,6 @@ class PostController {
         return "Saved"
     }
 
-    // This returns a JSON or XML with the users
     @GetMapping
     @ResponseBody
     fun getPosts(
