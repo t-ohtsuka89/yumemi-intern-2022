@@ -3,7 +3,6 @@ package com.example.demo.app.controller
 
 import com.example.demo.domain.entity.Post
 import com.example.demo.domain.repository.PostRepository
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import javax.persistence.EntityManager
@@ -18,7 +17,8 @@ class PostController(private val postRepository: PostRepository) {
     @PostMapping
     @ResponseBody
     fun addPost(
-        @RequestParam userId: Int, @RequestParam text: String
+        @RequestParam userId: Int,
+        @RequestParam text: String
     ): String {
         val post = Post()
         post.userId = userId
