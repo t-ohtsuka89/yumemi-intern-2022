@@ -16,17 +16,22 @@ class TimelineController {
     @GetMapping("/")
     fun index(
         model: Model,
-        @RequestParam(defaultValue = "20") limit: Int,
-        @RequestParam(defaultValue = "0") offset: Int,
+        @RequestParam(defaultValue = "20")
+        limit: Int,
+        @RequestParam(defaultValue = "0")
+        offset: Int,
     ): String {
-        val posts: List<Post> = entityManager.createQuery(
-            "SELECT p FROM Post p ORDER BY p.id DESC",
-            Post::class.java
-        )
+        val posts: List<Post> = entityManager
+            .createQuery(
+                "SELECT p FROM Post p ORDER BY p.id DESC",
+                Post::class.java
+            )
             .setFirstResult(offset)
-            .setMaxResults(limit)
-            .resultList
-        model.addAttribute("posts", posts)
+            .setMaxResults(limit).resultList
+        model.addAttribute(
+            "posts",
+            posts
+        )
         return "timeline"
     }
 }
