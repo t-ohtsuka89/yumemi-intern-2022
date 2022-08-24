@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" th:fragment="layout(title, body, links, scripts)" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/layout/layout.css}">
+  <link rel="stylesheet" th:href="@{/css/layout/sidebar.css}">
+  <th:block th:replace="${links} ?: _"/>
+  <th:block th:replace="${scripts} ?: _"/>
+  <title th:text="${title}"></title>
+</head>
+<body>
+<div id="container">
+  <div th:replace="~{layout/sidebar::layout-sidebar}"></div>
+  <div id="main" th:replace="${body}"></div>
+</div>
+</body>
+</html>
