@@ -24,6 +24,9 @@ abstract class TimeStamp {
     )
     var updatedAt: Date? = null
 
-    @Column(name = "deleted_at", columnDefinition = "DATETIME DEFAULT NULL")
+    @Column(
+        name = "deleted_at",
+        columnDefinition = "DATETIME DEFAULT NULL"
+    )
     var deletedAt: Date? = null
 }
