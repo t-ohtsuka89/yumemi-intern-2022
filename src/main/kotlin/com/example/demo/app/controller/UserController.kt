@@ -1,6 +1,5 @@
 package com.example.demo.app.controller
 
-
 import com.example.demo.domain.entity.User
 import com.example.demo.domain.repository.UserRepository
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -16,9 +15,12 @@ class UserController(private val userRepository: UserRepository) {
     @PostMapping
     @ResponseBody
     fun addUser(
-        @RequestParam(required = true) username: String,
-        @RequestParam(required = true) email: String,
-        @RequestParam(required = true) password: String
+        @RequestParam(required = true)
+        username: String,
+        @RequestParam(required = true)
+        email: String,
+        @RequestParam(required = true)
+        password: String,
     ) {
         val passwordEncoder = BCryptPasswordEncoder()
         val digest = passwordEncoder.encode(password)

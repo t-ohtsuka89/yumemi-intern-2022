@@ -41,7 +41,8 @@ class PostController(private val postRepository: PostRepository) {
         @RequestParam(defaultValue = "0")
         offset: Int,
     ): HashMap<String, Any> {
-        val resultList = entityManager.createNativeQuery("SELECT user_id, text, created_at FROM posts")
+        val resultList = entityManager
+            .createNativeQuery("SELECT user_id, text, created_at FROM posts")
             .setFirstResult(offset)
             .setMaxResults(limit).resultList
         val map = HashMap<String, Any>()
