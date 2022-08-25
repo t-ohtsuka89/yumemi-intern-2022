@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" th:replace="~{layout/layout::layout('timeline',~{::body/content()},~{::link},~{::script})}"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" th:href="@{/css/login.css}"/>
