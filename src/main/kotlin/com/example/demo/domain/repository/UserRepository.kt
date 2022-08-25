@@ -6,6 +6,9 @@ import org.springframework.data.repository.CrudRepository
 
 interface UserRepository : CrudRepository<User, Int?> {
 
-    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    @Query(
+        "SELECT * FROM users WHERE email = ?1 AND deleted_at IS NULL ORDER BY created_at DESC LIMIT 1",
+        nativeQuery = true
+    )
     fun findByEmail(email: String): User?
 }
