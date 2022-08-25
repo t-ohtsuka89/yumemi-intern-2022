@@ -12,7 +12,6 @@ class UserDetailsServiceImpl(private val userRepository: UserRepository) : UserD
 
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(email: String): UserDetails {
-        println(userRepository.findByEmail(email))
         return userRepository
             .findByEmail(email)
             ?.let {
