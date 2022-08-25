@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja"
+      th:replace="~{layout/layout::layout('timeline',~{::body/content()},~{::link},~{::script})}"
+      xmlns:th="http://www.thymeleaf.org">
+<body id="main">
+<div style="overflow-y: auto">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>ユーザーID</th>
+      <th>本文</th>
+      <th>投稿日時</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="height: 20vh" th:each="post : ${posts}" th:object="${post}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{userId}"></td>
+      <td th:text="*{text}"></td>
+      <td th:text="${#dates.format(post.createdAt, 'yyyy/MM/dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
