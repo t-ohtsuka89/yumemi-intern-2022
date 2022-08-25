@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/layout::layout('ログイン',~{::body/content()},~{::link},~{::script})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/login.css}"/>
+  <title>ログイン</title>
+</head>
+<body>
+<div class="login-form">
+  <h2 class="heading">ログイン</h2>
+  <form method="post" th:action="@{/login}">
+    <div th:if="${param.error}">
+      ログインに失敗しました
+      <div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
+        <span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></span>
+      </div>
+    </div>
+    <div th:if="${param.logout}">
+      ログアウトしました
+    </div>
+    <label for="username">メールアドレス</label>
+    <input id="username" name="username" type="text"><br>
+    <label for="password">パスワード</label>
+    <input id="password" name="password" type="password"><br>
+    <button type="submit">ログイン</button>
+  </form>
+</div>
+</body>
+</html>

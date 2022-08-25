@@ -1,7 +1,10 @@
+<html lang="ja" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
 <div id="sidebar" th:fragment="layout-sidebar">
   <div id="sidebar-header">
     <div id="sidebar-header-title">
-      <h1>Title</h1>
+      <h1>ゆめみ-インターン課題</h1>
     </div>
   </div>
   <div id="sidebar-body">
@@ -9,8 +12,22 @@
   <div id="sidebar-footer">
     <div id="sidebar-footer-user">
       <div id="sidebar-footer-user-name">
-        <h1>User Name</h1>
+        <div sec:authorize="isAuthenticated()">
+          <h1 sec:authentication="principal.username"></h1>
+          <form method="post" th:action="@{/logout}">
+            <button class="logout-button">
+              ログアウト
+            </button>
+          </form>
+        </div>
+        <div sec:authorize="isAnonymous()">
+          <a href="/login">
+            <div>ログイン</div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
+</body>
+</html>
