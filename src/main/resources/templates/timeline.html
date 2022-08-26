@@ -7,16 +7,14 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>ユーザーID</th>
+      <th>投稿者</th>
       <th>本文</th>
       <th>投稿日時</th>
     </tr>
     </thead>
     <tbody>
     <tr style="height: 20vh" th:each="post : ${posts}" th:object="${post}">
-      <td th:text="*{id}"></td>
-      <td th:text="*{userId}"></td>
+      <td th:text="*{username}"></td>
       <td th:text="*{text}"></td>
       <td th:text="${#dates.format(post.createdAt, 'yyyy/MM/dd HH:mm:ss')}"></td>
     </tr>
